@@ -1,8 +1,5 @@
 version: 1.2
 workflows:
-  - subclass: WDL
+  - name: hello_world
+    subclass: WDL
     primaryDescriptorPath: /hello_world.wdl
-    name: hello_world
-    description: A minimal Hello World WDL workflow that echoes a message.
-    author: Robert Randiak
-    email: randiak@pm.me
