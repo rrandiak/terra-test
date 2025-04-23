@@ -28,7 +28,7 @@ task get_chrom_sizes {
     }
 
     command {
-        wget -O chrom.sizes "http://hgdownload.soe.ucsc.edu/goldenPath/${genome_assembly}/bigZips/${genome_assembly}.chrom.sizes"
+        curl -o chrom.sizes "http://hgdownload.soe.ucsc.edu/goldenPath/${genome_assembly}/bigZips/${genome_assembly}.chrom.sizes"
     }
 
     output {
@@ -48,7 +48,7 @@ task convert_bed_to_bigbed {
     }
 
     command <<<
-        wget -O bedToBigBed "http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed"
+        curl -o bedToBigBed "http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed"
         chmod +x bedToBigBed
 
         ./bedToBigBed -sort ${bed_file} ${chrom_sizes} output.bb
