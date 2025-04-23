@@ -9,3 +9,6 @@ workflows:
   - name: count_seq_ns_parallel
     subclass: WDL
     primaryDescriptorPath: /count_seq_ns_parallel.wdl
+  - name: bed2bb
+    subclass: WDL
+    primaryDescriptorPath: /bed2bb.wdl
