@@ -28,7 +28,7 @@ task get_chrom_sizes {
     }
 
     command {
-        curl -o chrom.sizes "http://hgdownload.soe.ucsc.edu/goldenPath/${genome_assembly}/bigZips/${genome_assembly}.chrom.sizes"
+        sh -c 'curl -o chrom.sizes "http://hgdownload.soe.ucsc.edu/goldenPath/${genome_assembly}/bigZips/${genome_assembly}.chrom.sizes"'
     }
 
     output {
