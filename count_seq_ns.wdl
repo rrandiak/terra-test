@@ -29,7 +29,7 @@ task count_ns {
     }
 
     runtime {
-		container: "alpine:latest"
+		docker: "alpine:latest"
         preemptible: 3
     }
 }

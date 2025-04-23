@@ -47,7 +47,7 @@ task split_fasta {
     }
 
     runtime {
-		container: "alpine:latest"
+		docker: "alpine:latest"
         preemptible: 3
     }
 }
@@ -66,7 +66,7 @@ task count_ns {
     }
 
     runtime {
-		container: "alpine:latest"
+		docker: "alpine:latest"
         preemptible: 3
     }
 }
@@ -85,7 +85,7 @@ task sum_counts {
     }
 
     runtime {
-        container: "alpine:latest"
+        docker: "alpine:latest"
         preemptible: 3
     }
 }
