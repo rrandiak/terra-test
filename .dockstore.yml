@@ -3,3 +3,6 @@ workflows:
   - name: hello_world
     subclass: WDL
     primaryDescriptorPath: /hello_world.wdl
+  - name: count_seq_ns
+    subclass: WDL
+    primaryDescriptorPath: /count_seq_ns.wdl
