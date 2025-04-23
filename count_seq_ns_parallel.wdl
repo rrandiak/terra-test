@@ -30,6 +30,8 @@ task split_fasta {
     }
 
     command <<<
+        set -eux
+
         mkdir split_seqs
 
         # Decompress if needed and split into separate files per sequence
