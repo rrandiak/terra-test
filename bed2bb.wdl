@@ -50,8 +50,11 @@ task convert_bed_to_bigbed {
     }
 
     command <<<
-        sort -k1,1 -k2,2n ${bed_file} > sorted.bed
-        bedToBigBed sorted.bed ${chrom_sizes} output.bb
+        apt-get update
+        apt-get install -y curl
+        curl -o bedToBigBed "http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed"
+        chmod +x bedToBigBed
+        ./bedToBigBed -sort sorted.bed ${chrom_sizes} output.bb
     >>>
 
     output {
@@ -59,7 +62,7 @@ task convert_bed_to_bigbed {
     }
 
     runtime {
-        docker: "quay.io/biocontainers/ucsc-bedtobigbed:473--h52f6b31_1"
+        docker: "debian:bookworm-slim"
         preemptible: 2
     }
 }
