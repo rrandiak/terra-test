@@ -15,7 +15,7 @@ task say_hello {
 		String message = read_string(stdout())
 	}
 
-	requirements {
+	runtime {
 		container: "alpine:latest"
     }
 }
