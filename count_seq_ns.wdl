@@ -29,7 +29,7 @@ task count_ns {
     }
 
     runtime {
-		docker: "alpine:latest"
+		docker: "debian:bullseye"
         preemptible: 3
     }
 }
