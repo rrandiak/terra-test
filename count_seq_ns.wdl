@@ -21,7 +21,7 @@ task count_ns {
     }
 
     command {
-        grep -v "^>" ${assembly_fasta} | tr -d -c 'Nn' | wc -c > gaps.txt
+        zgrep -v "^>" ${assembly_fasta} | tr -d -c 'Nn' | wc -c > gaps.txt
     }
 
     output {
