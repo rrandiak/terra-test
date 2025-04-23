@@ -36,7 +36,7 @@ task get_chrom_sizes {
     }
 
     runtime {
-        container: "debian:bullseye"
+        docker: "debian:bullseye"
         preemptible: 2
     }
 }
@@ -59,7 +59,7 @@ task convert_bed_to_bigbed {
     }
 
     runtime {
-        container: "debian:bullseye"
+        docker: "debian:bullseye"
         preemptible: 2
     }
 }
