@@ -49,9 +49,10 @@ task convert_bed_to_bigbed {
         File chrom_sizes
     }
 
-    command {
-        bedToBigBed -sort ${bed_file} ${chrom_sizes} output.bb
-    }
+    command <<<
+        sort -k1,1 -k2,2n ${bed_file} > sorted.bed
+        bedToBigBed sorted.bed ${chrom_sizes} output.bb
+    >>>
 
     output {
         File bigbed_file = "output.bb"
