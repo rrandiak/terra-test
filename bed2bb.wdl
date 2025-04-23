@@ -36,7 +36,7 @@ task get_chrom_sizes {
     }
 
     runtime {
-        docker: "debian:bullseye"
+        docker: "ubuntu:20.04"
         preemptible: 2
     }
 }
@@ -59,7 +59,7 @@ task convert_bed_to_bigbed {
     }
 
     runtime {
-        docker: "debian:bullseye"
+        docker: "ubuntu:20.04"
         preemptible: 2
     }
 }
