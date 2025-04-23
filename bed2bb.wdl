@@ -36,7 +36,7 @@ task get_chrom_sizes {
     }
 
     runtime {
-        docker: "ubuntu:20.04"
+        docker: "curlimages/curl:8.13.0"
         preemptible: 2
     }
 }
@@ -47,19 +47,16 @@ task convert_bed_to_bigbed {
         File chrom_sizes
     }
 
-    command <<<
-        curl -o bedToBigBed "http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed"
-        chmod +x bedToBigBed
-
-        ./bedToBigBed -sort ${bed_file} ${chrom_sizes} output.bb
-    >>>
+    command {
+        bedToBigBed -sort ${bed_file} ${chrom_sizes} output.bb
+    }
 
     output {
         File bigbed_file = "output.bb"
     }
 
     runtime {
-        docker: "ubuntu:20.04"
+        docker: "quay.io/biocontainers/ucsc-bedtobigbed:473--h52f6b31_1"
         preemptible: 2
     }
 }
