@@ -7,11 +7,6 @@ workflow hello_world {
 
 task say_hello {
 
-	input {
-        String greeting
-        String name
-    }
-
 	command {
 		echo "Hello, world!"
 	}
