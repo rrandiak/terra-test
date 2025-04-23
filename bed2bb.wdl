@@ -36,7 +36,7 @@ task get_chrom_sizes {
     }
 
     runtime {
-        docker: "curlimages/curl:8.13.0"
+        docker: "alpine/curl:8.12.1"
         preemptible: 2
     }
 }
