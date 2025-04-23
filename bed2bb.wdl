@@ -27,16 +27,18 @@ task get_chrom_sizes {
         String genome_assembly
     }
 
-    command {
-        sh -c 'curl -o chrom.sizes "http://hgdownload.soe.ucsc.edu/goldenPath/${genome_assembly}/bigZips/${genome_assembly}.chrom.sizes"'
-    }
+    command <<<
+        apt-get update
+        apt-get install -y curl bash
+        curl -o chrom.sizes "http://hgdownload.soe.ucsc.edu/goldenPath/${genome_assembly}/bigZips/${genome_assembly}.chrom.sizes"
+    >>>
 
     output {
         File chrom_sizes = "chrom.sizes"
     }
 
     runtime {
-        docker: "alpine/curl:8.12.1"
+        docker: "debian:bookworm-slim"
         preemptible: 2
     }
 }
