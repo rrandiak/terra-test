@@ -29,7 +29,7 @@ task get_chrom_sizes {
 
     command <<<
         apt-get update
-        apt-get install -y curl bash
+        apt-get install -y curl
         curl -o chrom.sizes "http://hgdownload.soe.ucsc.edu/goldenPath/${genome_assembly}/bigZips/${genome_assembly}.chrom.sizes"
     >>>
 
