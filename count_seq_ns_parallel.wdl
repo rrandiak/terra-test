@@ -76,9 +76,9 @@ task sum_counts {
         Array[Int] count_ns_values
     }
 
-    command {
+    command <<<
         echo "~{sep=' ' count_ns_values}" | awk '{s=0; for(i=1;i<=NF;i++) s+=$i} END {print s}'
-    }
+    >>>
 
     output {
         Int total_ns = read_int("total_gaps.txt")
