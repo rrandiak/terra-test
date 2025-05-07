@@ -77,7 +77,7 @@ task sum_counts {
     }
 
     command {
-        echo "~{sep=' ' count_ns_values}"
+        echo "~{sep=' ' count_ns_values}" | awk '{s=0; for(i=1;i<=NF;i++) s+=$i} END {print s}'
     }
 
     output {
