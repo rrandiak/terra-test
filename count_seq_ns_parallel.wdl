@@ -77,7 +77,7 @@ task sum_counts {
     }
 
     command {
-        echo ${sep="+" count_ns_values} | bc > total_gaps.txt
+        echo "${count_ns_values}" | awk '{s=0; for(i=1;i<=NF;i++) s+=$i} END {print s}' > total_gaps.txt
     }
 
     output {
