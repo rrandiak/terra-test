@@ -40,12 +40,10 @@ task split_fasta {
         else
             cat "~{assembly_fasta}" | awk '/^>/ {f="split_seqs/seq"++i".fa"} {print > f}'
         fi
-
-        ls split_seqs/*.fa > sequences.txt
     >>>
 
     output {
-        Array[File] sequence_files = read_lines("sequences.txt")
+        Array[File] sequence_files = glob("split_seqs/seq*.fa")
     }
 
     runtime {
